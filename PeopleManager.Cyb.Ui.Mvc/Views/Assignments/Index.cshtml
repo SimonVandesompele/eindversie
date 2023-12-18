@@ -1,0 +1,24 @@
+﻿@model IList<Assignment>
+@{
+    ViewData["Title"] = "Assignments";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a class="btn btn-primary" asp-action="Create">New Assignment</a>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Assigned to</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assignment in Model)
+        {
+            <partial name="RowPartial" model="assignment" />
+        }
+    </tbody>
+</table>

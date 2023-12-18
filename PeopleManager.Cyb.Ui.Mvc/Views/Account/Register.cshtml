@@ -1,0 +1,39 @@
+﻿@model RegisterModel
+
+@{
+    var returnUrl = ViewBag.ReturnUrl.ToString();
+    ViewData["Title"] = "Register as a new user";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<form method="post" asp-route-returnUrl="@returnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control">
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control">
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" class="form-control">
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<a asp-action="SignIn" asp-route-returnUrl="@returnUrl">I already have an account.</a>
+
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

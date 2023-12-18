@@ -1,0 +1,19 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = $"Details for {Model.FirstName} {Model.LastName}";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div>
+    <h2>First name</h2>
+    <p>@Model.FirstName</p>
+</div>
+<div>
+    <h2>Last name</h2>
+    <p>@Model.LastName</p>
+</div>
+<div>
+    <h2>Email</h2>
+    <p><a href="mailto:@Model.Email">@Model.Email</a></p>
+</div>

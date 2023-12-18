@@ -1,0 +1,14 @@
+﻿@model Assignment
+
+@{
+    ViewData["Title"] = $"Delete {Model.Name}";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you sure you want to delete "@Model.Name"?</p>
+
+<form method="post">
+    <a asp-action="Index">No</a>
+    <button type="submit" class="btn btn-primary">Yes</button>
+</form>

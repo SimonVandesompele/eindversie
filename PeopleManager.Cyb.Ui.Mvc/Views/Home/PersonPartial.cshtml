@@ -1,0 +1,31 @@
+﻿@model Person
+
+@{
+    var colorStyles = new List<string>
+    {
+        "text-white bg-primary",
+        "text-white bg-secondary",
+        "text-white bg-success",
+        "text-white bg-danger",
+        "text-dark bg-warning",
+        "text-dark bg-info",
+        "text-dark bg-light",
+        "text-white bg-dark"
+    };
+    var random = new Random();
+    var index = random.Next(colorStyles.Count-1);
+    var colorStyle = colorStyles[index];
+}
+ 
+<div class="card @colorStyle" style="width: 18rem; margin-top:10px;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Employee</h6>
+        <p class="card-text">Some specific info about this employee</p>
+        <a asp-action="Details" asp-route-id="@Model.Id" class="card-link">Go to Details</a>
+        @if (Model.Email is not null)
+        {
+            <a href="mailto:@Model.Email" class="card-link">Send Email</a>
+        }
+    </div>
+</div>

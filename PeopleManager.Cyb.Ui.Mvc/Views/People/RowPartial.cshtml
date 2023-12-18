@@ -1,0 +1,24 @@
+﻿@model Person
+
+<tr>
+    <td>@Model.FirstName</td>
+    <td>@Model.LastName</td>
+    <td>@Model.Email</td>
+    <td>
+        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model.Id">
+            Edit
+        </a>
+        <a class="btn btn-warning" asp-action="Delete" asp-route-id="@Model.Id">
+            Delete
+        </a>
+        <button class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                data-id="@Model.Id"
+                data-first-name="@Model.FirstName"
+                data-last-name="@Model.LastName"
+                data-type="delete">
+            Delete with modal
+        </button>
+    </td>
+</tr>

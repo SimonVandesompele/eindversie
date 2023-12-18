@@ -1,0 +1,41 @@
+﻿@model SignInModel
+
+@{
+    var returnUrl = ViewBag.ReturnUrl.ToString();
+    ViewData["Title"] = "Sign in";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<form method="post" asp-route-returnUrl="@returnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control">
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control">
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="RememberMe" class="form-label form-check-label">
+            <input asp-for="RememberMe" class="form-control form-check-input">
+        </label>
+        <span asp-validation-for="RememberMe"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign in</button>
+    
+    
+</form>
+
+<a asp-action="Register" asp-route-returnUrl="@returnUrl">I don't have an account yet.</a>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

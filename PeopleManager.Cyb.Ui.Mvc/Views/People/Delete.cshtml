@@ -1,0 +1,14 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = $"Delete {Model.FirstName} {Model.LastName}";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you sure you want to delete @Model.FirstName @Model.LastName?</p>
+
+<form method="post">
+    <a asp-action="Index">No</a>
+    <button type="submit" class="btn btn-primary">Yes</button>
+</form>
